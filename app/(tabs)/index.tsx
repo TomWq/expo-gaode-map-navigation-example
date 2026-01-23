@@ -9,12 +9,12 @@ export default function Test() {
 
    //使用地图要默认同意隐私协议
    useEffect(() => {
-        ExpoGaodeMapModule.updatePrivacyCompliance(true)
-        ExpoGaodeMapModule.initSDK({
-            androidKey: '778e16e599e6f597b34a42a1ade6293c',
-            iosKey: '9351998da2590b73e8ec9b9cec1240c7',
-            webKey: '', // 可选，使用 Web API 服务时需要
-        });
+      
+        // ExpoGaodeMapModule.initSDK({
+        //     androidKey: '0957076b4e77112c7c194a4ebf6c03e0',
+        //     iosKey: '9351998da2590b73e8ec9b9cec1240c7',
+        //     webKey: '', // 可选，使用 Web API 服务时需要
+        // });
         //安卓获取定位权限
        ExpoGaodeMapModule.requestLocationPermission()
 
@@ -33,6 +33,7 @@ export default function Test() {
         >
             <Text style={styles.exampleButtonText}>🗺️ 导航界面</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity
             style={[styles.exampleButton, { backgroundColor: '#FF9800' }]}
             onPress={() => router.push('/BasicNavigationTest')}

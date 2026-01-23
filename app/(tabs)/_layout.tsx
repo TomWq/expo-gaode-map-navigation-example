@@ -30,7 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
+          title: '导航',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           // headerRight: () => (
           //   <Link href="/modal" asChild>
@@ -51,7 +51,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
+          title: '地图',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

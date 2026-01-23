@@ -16,6 +16,14 @@ import { useEffect } from 'react';
 import { ScrollView, StyleSheet } from "react-native";
 export default function MainScreen() {
 
+
+    // const { isReady, stats } = useMapPreload({ poolSize: 1, delay: 0, strategy: 'native' }, true);
+
+    useEffect(()=>{
+        ExpoGaodeMapModule.initSDK({
+            webKey:''
+        })
+    },[])
   
     return (
         <ScrollView

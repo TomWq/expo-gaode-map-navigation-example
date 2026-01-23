@@ -16,6 +16,7 @@ import { ExpoGaodeMapModule, MapView, MapViewRef, Marker, NaviView, Polyline, Ro
 import { Stack } from 'expo-router';
 
 
+
 // 创建动画组件
 const AnimatedPolyline = Animated.createAnimatedComponent(Polyline);
 const AnimatedMarker = Animated.createAnimatedComponent(Marker);
@@ -181,7 +182,7 @@ export default function BasicNavigationTest() {
           return;
       }
 
-      console.log('[BasicNavigation] 路径规划结果:', JSON.stringify(result, null, 2));
+      // console.log('[BasicNavigation] 路径规划结果:', JSON.stringify(result, null, 2));
 
       // 处理返回结果
       let route: RouteResult;
@@ -457,8 +458,10 @@ export default function BasicNavigationTest() {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{
-        title:'基础导航'
+        title:'基础导航',
+        headerShown: false,
       }}/>
+    
       {showNaviView ? (
         <View style={styles.navContainer}>
           <NaviView
@@ -468,19 +471,19 @@ export default function BasicNavigationTest() {
             showCamera={true}
             enableVoice={true}
             showMode={1}
-            isNightMode
+            isNaviTravelView={true}
              // 路线标记点配置（新增2个参数）
-  routeMarkerVisible={{
-    showStartEndVia: true,      // 起终途点
-    showFootFerry: true,         // 步行轮渡
-    showForbidden: true,         // 禁行限行
-    showRouteStartIcon: true,    // 路线起点icon ✨新增
-    showRouteEndIcon: true,      // 路线终点icon ✨新增
-  }}
-  
-  // 新增功能
-  showDriveCongestion={true}     // 拥堵气泡 ✨新增
-  showTrafficLightView={true}    // 红绿灯倒计时 ✨新增
+          routeMarkerVisible={{
+            showStartEndVia: true,      // 起终途点
+            showFootFerry: true,         // 步行轮渡
+            showForbidden: true,         // 禁行限行
+            showRouteStartIcon: true,    // 路线起点icon
+            showRouteEndIcon: true,      // 路线终点icon
+          }}
+          
+          // 新增功能
+          showDriveCongestion={true}     // 拥堵气泡 
+          showTrafficLightView={true}    // 红绿灯倒计时 
             onNaviStart={(e) => {
               console.log('导航开始', e.nativeEvent);
             }}
@@ -569,7 +572,7 @@ export default function BasicNavigationTest() {
               </AnimatedMarker>
             )}
           </MapView>
-
+            <View style={styles.controlsContainer}>
           {/* 路径类型选择器 */}
           <View style={styles.routeTypeSelector}>
             <Text style={styles.selectorTitle}>选择路径类型:</Text>
@@ -709,7 +712,7 @@ export default function BasicNavigationTest() {
               </ScrollView>
             </View>
           )}
-
+          </View>
           {/* 状态信息 */}
           <View style={styles.info}>
             <Text style={styles.infoText}>
@@ -754,6 +757,12 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
+  },
+  controlsContainer:{
+       position: 'absolute',
+       top: 50,
+       left: 0,
+       right: 0,
   },
   routeTypeSelector: {
     position: 'absolute',
@@ -901,13 +910,14 @@ const styles = StyleSheet.create({
   navContainer: {
     flex: 1,
     position: 'relative',
+    paddingTop:0
   },
   naviView: {
     flex: 1,
   },
   closeButton: {
     position: 'absolute',
-    top: 60,
+    top: 160,
     right: 20,
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     paddingHorizontal: 15,

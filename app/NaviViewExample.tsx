@@ -335,6 +335,7 @@ const styles = StyleSheet.create({
   },
   naviView: {
     flex: 1,
+    
   },
   infoOverlay: {
     position: 'absolute',
