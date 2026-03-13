@@ -10,9 +10,7 @@
  */
 import Button from '@/components/UnifiedButton';
 
-import { ExpoGaodeMapModule } from 'expo-gaode-map-navigation';
 import { router } from "expo-router";
-import { useEffect } from 'react';
 import { ScrollView, StyleSheet } from "react-native";
 export default function MainScreen() {
 

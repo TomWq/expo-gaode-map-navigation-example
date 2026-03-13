@@ -28,7 +28,7 @@ export default function Layout() {
                 name="map"
                 options={{
                     title: '',
-                    headerTransparent: true,
+                    // headerTransparent: true,
                 }}
             />
             <Stack.Screen

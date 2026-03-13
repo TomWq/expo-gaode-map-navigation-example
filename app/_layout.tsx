@@ -9,6 +9,7 @@
  * Copyright (c) 2025 by 尚博信_王强, All Rights Reserved. 
  */
 import { useColorScheme } from '@/components/useColorScheme';
+import { useAuth } from '@/store/useAuth';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -58,7 +59,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-
+ const {privacyAgreed} = useAuth()
   
 
   return (
@@ -66,9 +67,15 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+       <Stack.Protected guard={!privacyAgreed}>
+          <Stack.Screen name="auth" options={{ headerShown: false }} />
+        </Stack.Protected>
+          <Stack.Protected guard={privacyAgreed}>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="(map)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack.Protected>
+      
       </Stack>
      
     </ThemeProvider>
