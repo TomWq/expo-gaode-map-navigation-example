@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { toast } from 'sonner-native';
 
-import { ExpoGaodeMapModule, OfficialNaviPageOptions } from 'expo-gaode-map-navigation';
+import { ExpoGaodeMapModule, OfficialNaviPageOptions, useLocationPermissions } from 'expo-gaode-map-navigation';
 
 type LatLng = {
   latitude: number;
@@ -87,6 +87,7 @@ export default function OfficialNaviPageExample() {
   const [startNaviDirectly, setStartNaviDirectly] = useState(true);
   const [needCalculateRouteWhenPresent, setNeedCalculateRouteWhenPresent] = useState(true);
   const [showNextRoadInfo, setShowNextRoadInfo] = useState(false);
+  const [status, requestPermission] = useLocationPermissions();
 
   // 车辆参数
   const [carType, setCarType] = useState('0');
@@ -97,12 +98,13 @@ export default function OfficialNaviPageExample() {
   const [extraJson, setExtraJson] = useState('{}');
 
   useEffect(()=>{
+        //请求定位权限
+        requestPermission();
       //ios用自带的导航 这个必须开启,info.plist中必须开启location background modes
         ExpoGaodeMapModule.setAllowsBackgroundLocationUpdates(true);
         ExpoGaodeMapModule.setInterval(5000);
         ExpoGaodeMapModule.setDistanceFilter(10);
         ExpoGaodeMapModule.setDesiredAccuracy(3);
-
   },[])
 
   const destination = useMemo(
