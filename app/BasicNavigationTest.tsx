@@ -49,11 +49,19 @@ export default function BasicNavigationTest() {
   const mapRef = useRef<MapViewRef>(null);
   const naviViewRef = useRef<NaviViewRef>(null);
 
+  useEffect(()=>{
+      ExpoGaodeMapModule.setInterval(5000);
+        ExpoGaodeMapModule.setDistanceFilter(10);
+        ExpoGaodeMapModule.setDesiredAccuracy(3);
+
+  },[])
+
   // 获取当前位置
   const getCurrentLocation = async () => {
     try {
-      const location = await ExpoGaodeMapModule.getCurrentLocation();
       
+      const location = await ExpoGaodeMapModule.getCurrentLocation();
+    
       if (location) {
         setCurrentLocation({
           latitude: location.latitude,

@@ -3,6 +3,12 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
+      "expo-gaode-map-navigation": [
+        "../expo-gaode-map/packages/navigation/src/index.ts"
+      ],
+      "expo-gaode-map-navigation/*": [
+        "../expo-gaode-map/packages/navigation/src/*"
+      ],
       "@/*": [
         "./*"
       ]

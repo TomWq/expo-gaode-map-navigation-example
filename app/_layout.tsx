@@ -13,6 +13,7 @@ import { useAuth } from '@/store/useAuth';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
+import { ExpoGaodeMapModule } from 'expo-gaode-map-navigation';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
@@ -59,7 +60,21 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
- const {privacyAgreed} = useAuth()
+  const {privacyAgreed} = useAuth()
+
+  useEffect(()=>{
+    try {
+  ExpoGaodeMapModule.setPrivacyConfig({
+    hasShow: true,
+    hasContainsPrivacy: true,
+    hasAgree: true,
+    privacyVersion: '1.0.0',
+  });
+} catch (error) {
+  // eslint-disable-next-line no-console
+  console.warn('[Gaode] bootstrap privacy config failed', error);
+}
+  },[])
   
 
   return (

@@ -75,7 +75,8 @@ bun install
         "iosKey": "你的iOS Key",
         "androidKey": "你的Android Key",
         "enableLocation": true,
-        "locationDescription": "我们需要访问您的位置信息以提供导航服务"
+        "locationDescription": "我们需要访问您的位置信息以提供导航服务",
+        "enableBackgroundLocation": true
       }
     ]
   ]

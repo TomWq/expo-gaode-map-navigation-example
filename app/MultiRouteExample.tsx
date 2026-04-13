@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
-import { toast } from 'sonner-native';
+import type { DriveRouteOptions, RouteResult } from 'expo-gaode-map-navigation';
 import * as ExpoGaodeMapNavigation from 'expo-gaode-map-navigation';
-import type { DriveRouteOptions, RouteResult, DriveRouteResult, Coordinates } from 'expo-gaode-map-navigation';
-import { RouteType, DriveStrategy,MapView, Marker, Polyline, MapViewRef, NaviView, type NaviViewRef  } from 'expo-gaode-map-navigation';
+import { DriveStrategy, MapView, MapViewRef, Marker, NaviView, Polyline, RouteType, type NaviViewRef } from 'expo-gaode-map-navigation';
 import { Stack } from 'expo-router';
+import React, { useEffect, useRef, useState } from 'react';
+import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { toast } from 'sonner-native';
 
 // 定义带有策略信息的路线接口
 interface ExtendedRouteResult extends RouteResult {
