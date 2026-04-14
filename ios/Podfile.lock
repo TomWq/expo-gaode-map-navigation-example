@@ -41,7 +41,7 @@ PODS:
     - ExpoModulesCore
   - ExpoFont (14.0.11):
     - ExpoModulesCore
-  - ExpoGaodeMapNavigation (2.0.10-next.0):
+  - ExpoGaodeMapNavigation (2.0.12-next.0):
     - AMapFoundation
     - AMapLocation
     - AMapNavi
@@ -2337,7 +2337,7 @@ SPEC CHECKSUMS:
   ExpoBlur: b90747a3f22a8b6ceffd9cb0dc41a4184efdc656
   ExpoFileSystem: 858a44267a3e6e9057e0888ad7c7cfbf55d52063
   ExpoFont: f543ce20a228dd702813668b1a07b46f51878d47
-  ExpoGaodeMapNavigation: 79da513f16af58207e886f433c130505207f7d68
+  ExpoGaodeMapNavigation: 35e58284b887c560f71d1aca3f3a5cce64813970
   ExpoGaodeMapSearch: 0e9aa03435d0c1cd21cc3b9e59a6927b4dc040af
   ExpoHead: 7e19b2272edf492262acf8afb391a295198a6b23
   ExpoKeepAwake: 55f75eca6499bb9e4231ebad6f3e9cb8f99c0296

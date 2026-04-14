@@ -15,7 +15,7 @@
     "expo-blur": "^15.0.8",
     "expo-constants": "~18.0.13",
     "expo-font": "~14.0.10",
-    "expo-gaode-map-navigation": "^2.0.10-next.0",
+    "expo-gaode-map-navigation": "^2.0.7",
     "expo-gaode-map-search": "^1.3.13",
     "expo-gaode-map-web-api": "^2.0.7",
     "expo-linking": "~8.0.11",
